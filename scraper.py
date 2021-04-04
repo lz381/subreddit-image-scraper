@@ -15,7 +15,7 @@ download_folder = 'images/'
 if not os.path.exists(download_folder):
     os.mkdir(download_folder)
 
-# rate limited to 100, so scrape in batches
+# API rate limited to 100, so scrape in batches
 batches = int(numSubmissions / 100)
 
 # get current timestamp (for batch checkpointing)
