@@ -39,8 +39,8 @@ for i, batch in enumerate(range(batches)):
     for submission in tqdm(response_data['data']):      
         
         if 'preview' in submission:      
-            img_url = submission['preview']['images'][0]['resolutions'][0]['url']
-            img_url = "http://i."+img_url.split('.', 1)[1]
+            img_url = submission['preview']['images'][0]['source']['url']
+            img_url = img_url.replace('&amp;', '&')
             r = requests.get(img_url)
             if r.status_code == 200:
                 img_filepath = download_folder + submission['preview']['images'][0]['id'] + '.jpg'
