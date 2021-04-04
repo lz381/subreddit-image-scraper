@@ -1,7 +1,7 @@
 import os
 import requests
 import time
-from tqdm import tqdm
+#from tqdm import tqdm
 
 
 # subreddit to scrape
@@ -36,7 +36,8 @@ for i, batch in enumerate(range(batches)):
     
     response_data = response.json()
     
-    for submission in tqdm(response_data['data']):      
+    #for submission in tqdm(response_data['data']):
+    for submission in response_data['data']:
         
         if 'preview' in submission:      
             img_url = submission['preview']['images'][0]['source']['url']
